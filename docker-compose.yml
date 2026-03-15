@@ -1,0 +1,13 @@
+services:
+  caddy:
+    image: caddy:2.8.4-alpine
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+    environment:
+      RAILS_UPSTREAM: "host.docker.internal:3000"
+      BRIDGE_UPSTREAM: "host.docker.internal:3100"
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped

@@ -1,0 +1,4 @@
+default:
+  name: My Library
+  source_id: test-source-id
+  source_url: http://localhost:4533

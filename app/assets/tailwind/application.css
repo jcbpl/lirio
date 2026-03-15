@@ -1,1 +1,79 @@
 @import "tailwindcss";
+
+@theme {
+  --color-surface: #121212;
+  --color-surface-raised: #1a1a1a;
+  --color-surface-overlay: #222222;
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #a0a0a0;
+  --color-text-tertiary: #666666;
+  --color-accent: #6366f1;
+  --color-accent-soft: rgba(99, 102, 241, 0.15);
+  --color-divider: rgba(255, 255, 255, 0.08);
+  --color-pill-bg: rgba(255, 255, 255, 0.1);
+  --color-pill-active-bg: #f5f5f5;
+  --color-pill-active-text: #121212;
+
+  --font-sans: "SF Pro Display", "SF Pro", -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  --font-mono: "SF Mono", ui-monospace, monospace;
+
+  --radius-card: 12px;
+  --radius-pill: 20px;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--color-surface);
+    color: var(--color-text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* View Transitions: iOS-style slide */
+@keyframes slide-from-right {
+  from { transform: translateX(30%); }
+}
+@keyframes slide-to-left {
+  to { transform: translateX(-10%); }
+}
+@keyframes slide-from-left {
+  from { transform: translateX(-10%); }
+}
+@keyframes slide-to-right {
+  to { transform: translateX(30%); }
+}
+
+html[data-turbo-visit-direction="forward"]::view-transition-old(root) {
+  animation: slide-to-left 250ms ease-in both;
+}
+html[data-turbo-visit-direction="forward"]::view-transition-new(root) {
+  animation: slide-from-right 250ms ease-out both;
+}
+html[data-turbo-visit-direction="back"]::view-transition-old(root) {
+  animation: slide-to-right 250ms ease-in both;
+}
+html[data-turbo-visit-direction="back"]::view-transition-new(root) {
+  animation: slide-from-left 250ms ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+  }
+}
+
+@utility no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}

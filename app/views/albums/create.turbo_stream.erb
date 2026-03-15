@@ -1,0 +1,20 @@
+<% @new_albums.each do |album| %>
+  <% after_album = @existing_sorted.detect { |a| a.sort_title > album.sort_title } %>
+  <% if after_album %>
+    <%= turbo_stream.before dom_id(after_album) do %>
+      <%= render "albums/card", album: album %>
+    <% end %>
+  <% else %>
+    <%= turbo_stream.append "album-grid" do %>
+      <%= render "albums/card", album: album %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<% @updated_albums.each do |album| %>
+  <%= turbo_stream.replace dom_id(album) do %>
+    <%= render "albums/card", album: album %>
+  <% end %>
+<% end %>
+
+<%= turbo_stream.update "album-count", pluralize(@album_count, "Album") %>

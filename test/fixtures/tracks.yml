@@ -1,0 +1,39 @@
+nine_ball:
+  album: boys_of_faith
+  external_id: track-1
+  title: Nine Ball
+  artist: Zach Bryan
+  track_number: 1
+  duration_seconds: 196
+
+sarahs_place:
+  album: boys_of_faith
+  external_id: track-2
+  title: Sarah's Place (feat. Noah Kahan)
+  artist: Zach Bryan
+  track_number: 2
+  duration_seconds: 215
+
+boys_of_faith:
+  album: boys_of_faith
+  external_id: track-3
+  title: Boys of Faith (feat. Bon Iver)
+  artist: Zach Bryan
+  track_number: 3
+  duration_seconds: 189
+
+deep_satin:
+  album: boys_of_faith
+  external_id: track-4
+  title: Deep Satin
+  artist: Zach Bryan
+  track_number: 4
+  duration_seconds: 221
+
+pain_sweet_pain:
+  album: boys_of_faith
+  external_id: track-5
+  title: Pain, Sweet, Pain
+  artist: Zach Bryan
+  track_number: 5
+  duration_seconds: 199

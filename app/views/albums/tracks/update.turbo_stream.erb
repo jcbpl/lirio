@@ -1,0 +1,3 @@
+<%= turbo_stream.update "track-list" do %>
+  <%= render partial: "albums/track", collection: @album.tracks, as: :track %>
+<% end %>

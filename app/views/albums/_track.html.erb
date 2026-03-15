@@ -1,0 +1,12 @@
+<div class="flex items-center gap-4 py-3 border-b border-divider last:border-0 group">
+  <span class="w-6 text-right text-sm text-text-tertiary tabular-nums shrink-0">
+    <%= track.track_number if track.track_number > 0 %>
+  </span>
+  <div class="flex-1 min-w-0">
+    <p class="text-sm font-medium truncate"><%= track.title %></p>
+    <p class="text-xs text-text-secondary truncate"><%= track.artist %></p>
+  </div>
+  <span class="text-xs text-text-tertiary tabular-nums shrink-0">
+    <%= formatted_duration(track.duration_seconds) if track.duration_seconds > 0 %>
+  </span>
+</div>

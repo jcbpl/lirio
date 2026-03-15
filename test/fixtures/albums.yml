@@ -1,0 +1,19 @@
+boys_of_faith:
+  library: default
+  external_id: album-1
+  title: Boys of Faith
+  sort_title: boys of faith
+  artist: Zach Bryan
+  year: 2024
+  song_count: 5
+  duration_seconds: 1020
+
+two:
+  library: default
+  external_id: album-2
+  title: Kind of Blue
+  sort_title: kind of blue
+  artist: Miles Davis
+  year: 1959
+  song_count: 5
+  duration_seconds: 2756

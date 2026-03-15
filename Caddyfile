@@ -1,0 +1,22 @@
+{
+	auto_https off
+	admin off
+}
+
+:8080 {
+	encode zstd gzip
+
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy no-referrer
+		Permissions-Policy interest-cohort=()
+	}
+
+	route {
+		handle_path /bridge/* {
+			reverse_proxy {$BRIDGE_UPSTREAM}
+		}
+
+		reverse_proxy {$RAILS_UPSTREAM}
+	}
+}

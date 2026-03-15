@@ -1,0 +1,54 @@
+<div class="max-w-2xl mx-auto px-4 pt-4"
+     data-controller="library cover-art"
+     data-library-synced-value="<%= current_library.last_synced_at.present? %>"
+     data-library-recent-ids-value="<%= @recent_ids.to_json %>"
+     data-library-source-id-value="<%= current_library.source_id %>"
+     data-cover-art-source-id-value="<%= current_library.source_id %>">
+  <%# Header %>
+  <div class="flex items-center justify-between mb-4">
+    <h1 class="text-2xl font-bold tracking-tight"><%= current_library.name %></h1>
+    <div class="flex items-center gap-3">
+      <button data-action="library#refresh"
+              class="text-text-secondary hover:text-text-primary transition-colors"
+              title="Refresh library">
+        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182M20.984 4.356v4.992" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <%# Filter pills %>
+  <div class="flex gap-2 mb-4 overflow-x-auto no-scrollbar">
+    <span class="px-4 py-1.5 rounded-full text-sm font-medium bg-pill-active-bg text-pill-active-text whitespace-nowrap">Albums</span>
+    <span class="px-4 py-1.5 rounded-full text-sm font-medium bg-pill-bg text-text-secondary whitespace-nowrap opacity-50 cursor-default">Album Artists</span>
+    <span class="px-4 py-1.5 rounded-full text-sm font-medium bg-pill-bg text-text-secondary whitespace-nowrap opacity-50 cursor-default">Artists</span>
+  </div>
+
+  <%# Album count & sync info %>
+  <div class="flex items-center justify-between mb-4">
+    <span id="album-count" class="text-sm text-text-secondary"><%= pluralize(@albums.size, "Album") %></span>
+    <% if current_library.last_synced_at %>
+      <span class="text-xs text-text-tertiary">
+        Synced <%= time_ago_in_words(current_library.last_synced_at) %> ago
+      </span>
+    <% end %>
+  </div>
+
+  <div id="flash"></div>
+
+  <%# Album grid %>
+  <div id="album-grid" class="grid grid-cols-2 gap-4 pb-8">
+    <% @albums.each do |album| %>
+      <%= render "albums/card", album: album %>
+    <% end %>
+  </div>
+
+  <%# No-credentials prompt %>
+  <div data-library-target="reconnectPrompt" class="hidden">
+    <div class="bg-surface-raised rounded-2xl p-6 text-center mb-6">
+      <p class="text-text-secondary mb-3">Bridge not connected to Navidrome</p>
+      <%= link_to "Reconnect", new_library_path, class: "text-accent font-medium" %>
+    </div>
+  </div>
+</div>
