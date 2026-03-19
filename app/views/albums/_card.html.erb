@@ -1,5 +1,7 @@
 <%= link_to album_path(album.external_id), id: dom_id(album), class: "block group" do %>
-  <div class="aspect-square rounded overflow-hidden bg-surface-raised mb-2 relative">
+  <div
+    style="view-transition-name: <%= album_cover_transition_name(album) %>;"
+    class="aspect-square rounded overflow-hidden bg-surface-raised mb-2 relative">
     <div
       data-cover-art-target="fallback"
       class="absolute inset-0 flex items-center justify-center text-text-tertiary">

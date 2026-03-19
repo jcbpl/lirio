@@ -16,4 +16,8 @@ module ApplicationHelper
   def album_meta_line(album)
     [album.artist, album.year].compact_blank.join(" \u2022 ")
   end
+
+  def album_cover_transition_name(album)
+    "album-cover-#{album.id}"
+  end
 end

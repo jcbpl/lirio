@@ -10,6 +10,8 @@ Lirio is meant to feel like a mobile-first music app, with the clarity and polis
 
 When new UI is added, it should feel like part of a music app, not like a default Rails admin surface.
 
+Transitions and motion should be web-native rather than imitations of iOS navigation. Avoid full-page pseudo-native slides. Prefer the browser's default View Transition behavior with minimal customization, and only add explicit transition styling when it solves a specific problem or supports focused shared-element continuity such as album artwork.
+
 ## Target architecture
 
 - Rails is the coordination plane

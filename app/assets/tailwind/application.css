@@ -36,33 +36,6 @@
   }
 }
 
-/* View Transitions: iOS-style slide */
-@keyframes slide-from-right {
-  from { transform: translateX(30%); }
-}
-@keyframes slide-to-left {
-  to { transform: translateX(-10%); }
-}
-@keyframes slide-from-left {
-  from { transform: translateX(-10%); }
-}
-@keyframes slide-to-right {
-  to { transform: translateX(30%); }
-}
-
-html[data-turbo-visit-direction="forward"]::view-transition-old(root) {
-  animation: slide-to-left 250ms ease-in both;
-}
-html[data-turbo-visit-direction="forward"]::view-transition-new(root) {
-  animation: slide-from-right 250ms ease-out both;
-}
-html[data-turbo-visit-direction="back"]::view-transition-old(root) {
-  animation: slide-to-right 250ms ease-in both;
-}
-html[data-turbo-visit-direction="back"]::view-transition-new(root) {
-  animation: slide-from-left 250ms ease-out both;
-}
-
 @media (prefers-reduced-motion: reduce) {
   ::view-transition-old(root),
   ::view-transition-new(root) {

@@ -19,7 +19,9 @@
 
   <%# Album artwork %>
   <div class="flex justify-center mb-4">
-    <div class="w-64 h-64 rounded overflow-hidden bg-surface-raised shadow-2xl relative">
+    <div
+      style="view-transition-name: <%= album_cover_transition_name(@album) %>;"
+      class="w-64 h-64 rounded overflow-hidden bg-surface-raised shadow-2xl relative">
       <div
         data-cover-art-target="fallback"
         class="absolute inset-0 flex items-center justify-center text-text-tertiary">
