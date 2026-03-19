@@ -37,3 +37,13 @@ Do not casually collapse this into a server-only Rails app. That would move the 
 - Keep the bridge thin and dependency-light.
 - Treat it as the stable app-facing boundary for upstream and future LAN/native communication.
 - Avoid designs that force browser clients to own sensitive upstream credentials long-term.
+
+## Style
+
+When an HTML tag has multiple attributes, put each attribute on its own line indented two spaces. Order attributes as follows:
+
+1. Structural — id, type, name, href, src, for, action, method
+2. Stimulus/data — data-controller, data-action, data-`*`-target, data-`*`-value
+3. Content — alt, title, placeholder, value
+4. Behavioral — loading, autocomplete, required, disabled
+5. class — always last

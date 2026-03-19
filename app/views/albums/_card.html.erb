@@ -1,17 +1,19 @@
 <%= link_to album_path(album.external_id), id: dom_id(album), class: "block group" do %>
   <div class="aspect-square rounded overflow-hidden bg-surface-raised mb-2 relative">
-    <div data-cover-art-target="fallback"
-         class="absolute inset-0 flex items-center justify-center text-text-tertiary">
+    <div
+      data-cover-art-target="fallback"
+      class="absolute inset-0 flex items-center justify-center text-text-tertiary">
       <svg class="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1">
         <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V4.5A2.25 2.25 0 0016.5 2.25h-.378a2.25 2.25 0 00-2.163 1.632l-.756 2.646M9 9v10.969" />
       </svg>
     </div>
-    <img data-cover-art-target="image"
-         data-cover-art-id="<%= album.cover_art_id %>"
-         data-action="load->cover-art#fadeIn"
-         alt="<%= album.title %>"
-         loading="lazy"
-         class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300">
+    <img
+      data-cover-art-target="image"
+      data-cover-art-id="<%= album.cover_art_id %>"
+      data-action="load->cover-art#fadeIn"
+      alt="<%= album.title %>"
+      loading="lazy"
+      class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-300">
   </div>
   <h3 class="text-sm font-medium truncate"><%= album.title %></h3>
   <p class="text-xs text-text-secondary truncate"><%= album_meta_line(album) %></p>
