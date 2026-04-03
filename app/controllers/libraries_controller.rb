@@ -23,8 +23,7 @@ class LibrariesController < ApplicationController
   end
 
   private
-
-  def library_params
-    params.expect(library: %i[name source_id source_url])
-  end
+    def library_params
+      params.expect(library: %i[name source_id source_url])
+    end
 end
